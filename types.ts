@@ -39,4 +39,5 @@ export interface OscConfig {
   theme: 'light' | 'dark' | 'pure-black';
   accentColor: string;
   updateCheckInterval: UpdateCheckInterval;
+  typingIndicator: boolean;
 }

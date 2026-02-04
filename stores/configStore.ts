@@ -29,6 +29,7 @@ const loadConfigFromStorage = (): OscConfig => {
         accentColor: parsed.accentColor || DEFAULT_CONFIG.ACCENT_COLOR,
         updateCheckInterval:
           parsed.updateCheckInterval || DEFAULT_CONFIG.UPDATE_CHECK_INTERVAL,
+        typingIndicator: parsed.typingIndicator ?? DEFAULT_CONFIG.TYPING_INDICATOR,
       };
     }
   } catch (error) {
@@ -44,6 +45,7 @@ const loadConfigFromStorage = (): OscConfig => {
     theme: DEFAULT_CONFIG.THEME,
     accentColor: DEFAULT_CONFIG.ACCENT_COLOR,
     updateCheckInterval: DEFAULT_CONFIG.UPDATE_CHECK_INTERVAL,
+    typingIndicator: DEFAULT_CONFIG.TYPING_INDICATOR,
   };
 };
 

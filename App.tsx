@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Settings, Zap, ZapOff, Send } from 'lucide-react';
+import { Settings, Zap, ZapOff, Send, MessageSquareDot } from 'lucide-react';
 import VirtualKeyboard from './components/VirtualKeyboard';
 import SettingsModal from './components/SettingsModal';
 import TutorialOverlay from './components/TutorialOverlay';
@@ -69,7 +69,9 @@ const App = () => {
   const handleInputEffect = (text: string) => {
     // Typing Indicator Logic
     if (text.length > 0) {
-      sendTypingStatus(true);
+      if (config.typingIndicator) {
+        sendTypingStatus(true);
+      }
       resetTypingTimeout();
     } else {
       // If text is empty, stop typing indicator immediately / テキストが空なら即座に停止
@@ -280,6 +282,29 @@ const App = () => {
             {config.autoSend ? <Zap size={28} /> : <ZapOff size={28} />}
             <span className='text-[10px] font-bold'>
               {config.autoSend ? 'AUTO' : 'MANUAL'}
+            </span>
+          </button>
+
+          {/* Typing Indicator Toggle / タイピングインジケーター切り替え */}
+          <button
+            onClick={() => updateConfig('typingIndicator', !config.typingIndicator)}
+            className={`
+              flex flex-col items-center justify-center gap-2 p-3 rounded-2xl border-2 transition-all shadow-md w-full aspect-square
+              ${
+                config.typingIndicator
+                  ? 'bg-blue-500/10 border-blue-500 text-blue-600 dark:text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.3)]'
+                  : 'dark:bg-slate-800 bg-white hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 dark:text-slate-500 border-slate-300 dark:border-slate-600'
+              }
+            `}
+            title={
+              config.typingIndicator
+                ? 'Typing Indicator: ON'
+                : 'Typing Indicator: OFF'
+            }
+          >
+            <MessageSquareDot size={28} />
+            <span className='text-[10px] font-bold'>
+              {config.typingIndicator ? 'TYPE' : 'HIDE'}
             </span>
           </button>
         </div>

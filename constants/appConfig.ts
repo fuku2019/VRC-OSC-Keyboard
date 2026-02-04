@@ -18,6 +18,7 @@ export const DEFAULT_CONFIG = {
   THEME: 'dark' as const,
   ACCENT_COLOR: 'cyan',
   UPDATE_CHECK_INTERVAL: 'weekly' as const,
+  TYPING_INDICATOR: true,
 } as const;
 
 // Timeout values (in milliseconds) / タイムアウト値（ミリ秒）
