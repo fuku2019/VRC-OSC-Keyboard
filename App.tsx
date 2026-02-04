@@ -231,7 +231,7 @@ const App = () => {
         <button
           onClick={() => triggerSend(textareaRef)}
           className={`
-            absolute right-4 top-1/2 -translate-y-1/2 h-20 w-20 
+            absolute right-4 top-1/2 -translate-y-1/2 h-16 w-16 
             rounded-full shadow-xl transition-all duration-200 
             flex items-center justify-center border-4 
             ${
@@ -245,7 +245,7 @@ const App = () => {
           {isSending ? (
             <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-white'></div>
           ) : (
-            <Send size={32} className='text-white ml-1' />
+            <Send size={28} className='text-white ml-1' />
           )}
         </button>
       </div>
